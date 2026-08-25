@@ -1,0 +1,52 @@
+{
+  "name": "attar-alhaj-ali",
+  "version": "1.3.0",
+  "description": "برنامج عطارة - نظام مدير وكاشير وصلاحيات",
+  "main": "main.js",
+  "author": "محمد عبدالحفيظ",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "22.3.27",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.mohamedabdelhafiz.attaralhajali",
+    "productName": "عطارة",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "عطارة",
+      "deleteAppDataOnUninstall": false
+    },
+    "artifactName": "Attar-Alhaj-Ali-Setup-${version}.${ext}",
+    "asar": true,
+    "compression": "maximum"
+  }
+}
